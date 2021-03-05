@@ -48,13 +48,13 @@
 			echo json_encode(array("statusCode"=>201));
 		}
 		else{
-			$sql = "UPDATE iprofile SET dob = $dob, phone = $phone, city = '$city'
+			$sql = "UPDATE iprofile SET dob = '$dob', phone = $phone, city = '$city'
 			WHERE email = '$email'";
 			if (mysqli_query($conn, $sql)) {
 				echo json_encode(array("statusCode"=>200));
 			}
 			else {
-				echo json_encode(array("statusCode"=>mysqli_error($conn)));
+				echo json_encode(array("statusCode"=>201));
 			}
 		}
 		mysqli_close($conn);

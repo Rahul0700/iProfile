@@ -95,9 +95,9 @@
   					if(dataResult.statusCode==200){
   						location.href = "welcome.php";
   					}
-  					else{
+            else if(dataResult.statusCode==201){
   						$("#error").show();
-  						$('#error').html(dataResult.statusCode);
+  						$('#error').html('Invalid Request !');
   					}
 
   				}

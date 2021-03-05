@@ -44,20 +44,20 @@
         box-shadow:0 0 5px #b9d4e9;
     }
     #pswd_info {
-        position:absolute;
-        width:250px;
-        padding:10px;
-        background:#fefefe;
-        font-size:.875em;
-        border-radius:5px;
-        box-shadow:0 1px 3px #ccc;
-        border:1px solid #ddd;
+      position:absolute;
+      width:250px;
+      padding:10px;
+      background:#fefefe;
+      font-size:.875em;
+      border-radius:5px;
+      box-shadow:0 1px 3px #ccc;
+      border:1px solid #ddd;
     }
     #pswd_info h4 {
         margin:0 0 10px 0;
         padding:0;
         font-weight:normal;
-        font-size: 1em;
+        font-size:1em;
     }
     #pswd_info::before {
         content: "\25B2";
@@ -101,32 +101,27 @@
 
         <div class="col md-6 d-none d-lg-block mt-5" id="bg">
         </div>
-
         <div class="col-lg-6 col-12 border shadow-lg bg-body rounded pb-5 px-4 bg-light mt-5">
+
           <h3 class="py-3">Signup</h3>
           <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error" style="display:none">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
-
-
           <form method="post">
-
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
               <input type="text" class="form-control" id="name" required>
-              <div id="nameHelp" class="form-text " style="display:none"></div>
+              <div id="nameHelp" class="form-text" style="display:none"></div>
             </div>
-
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
               <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-              <div id="emailHelp" class="form-text ">We'll never share your email with anyone else.</div>
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
-
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" required>
-              <div id="pswdHelp" class="form-text " style="display:none"></div>
+              <div id="pswdHelp" class="form-text" style="display:none"></div>
               <div id="pswd_info">
                   <h4>Password must meet the following requirements:</h4>
                   <ul>
@@ -137,14 +132,11 @@
                   </ul>
               </div>
             </div>
-
             <button type="submit" id="register" class="btn btn-primary">Register</button>
-
           </form>
         </div>
       </div>
     </div>
-
     <div class="container-fluid">
       <a class="fw-lighter text-decoration-none text-light p-2 m-0" style="font-size:.5em;" href="https://www.freepik.com/vectors/people">People vector created by grmarc - www.freepik.com</a>
       <div class="fw-lighter text-decoration-none text-light p-2" style="font-size:.5em;">Logo made by <a class="fw-lighter text-decoration-none text-light" href="https://www.designevo.com/" title="Free Online Logo Maker">DesignEvo free logo creator</a></div>
@@ -152,7 +144,6 @@
   </body>
   <script>
   $(document).ready(function() {
-    // Password Validation
     $('input[type=password]').keyup(function() {
       var pswd = $('#password').val();
       if ( pswd.length < 8 ) {
@@ -165,12 +156,14 @@
       } else {
           $('#letter').removeClass('valid').addClass('invalid');
       }
+
       //validate capital letter
       if ( pswd.match(/[A-Z]/) ) {
           $('#capital').removeClass('invalid').addClass('valid');
       } else {
           $('#capital').removeClass('valid').addClass('invalid');
       }
+
       //validate number
       if ( pswd.match(/\d/) ) {
           $('#number').removeClass('invalid').addClass('valid');
@@ -182,12 +175,6 @@
     }).blur(function() {
         $('#pswd_info').hide();
     });
-
-
-
-
-
-    // Validate form
    function required(name,email,password) {
      if (!password.match(/[A-z]/)  || !password.match(/\d/) || password.length < 8 || !password.match(/[A-Z]/)) {
         alert("Your password isn't strong would you like to continue ")
@@ -195,7 +182,7 @@
     if( name == ''  || name == "null") {
         $("#nameHelp").show();
         $('#nameHelp').html('This field is required');
-        return false;
+        return false;               // Your code to handle error
      }
      else if (email == ''  || email == "null") {
        $("#emailHelp").show();
@@ -211,11 +198,6 @@
        return true;
      }
   }
-
-
-
-
-  // Form Submission
   $('#register').on('click', function() {
 		$("#register").attr("disabled", "disabled");
 		var name = $('#name').val();

@@ -1,8 +1,6 @@
 <?php
 	include 'database.php';
 	session_start();
-
-	// Registration query
 	if($_POST['type']==1){
 		$name=$_POST['name'];
 		$email=$_POST['email'];
@@ -25,8 +23,6 @@
 		}
 		mysqli_close($conn);
 	}
-
-	// Login query
 	if($_POST['type']==2){
 		$email=$_POST['email'];
 		$password=$_POST['password'];

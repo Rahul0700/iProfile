@@ -1,4 +1,3 @@
-<!-- Create Db connection -->
 <?php
 	$servername = "localhost";
 	$username = "root";

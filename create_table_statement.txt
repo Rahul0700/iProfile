@@ -1,0 +1,10 @@
+CREATE TABLE `iprofile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `dob` date,
+  `phone` varchar(100),
+  `city` varchar(100),
+   PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

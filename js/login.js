@@ -16,6 +16,7 @@ $(document).ready(function() {
         success: function(dataResult){
           var dataResult = JSON.parse(dataResult);
           if(dataResult.statusCode==200){
+            console.log("I am insdazsxdfcgvhbjnhbgvfcdxszdxfgvhbjnhbgvfcdxsezxdfgvhbjnhbgvfcdx");
             location.href = "welcome.php";
           }
           else if(dataResult.statusCode==201){

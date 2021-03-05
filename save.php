@@ -53,7 +53,6 @@
 			WHERE email = '$email'";
 			if (mysqli_query($conn, $sql)) {
 				header("Location:welcome.php");
-				echo json_encode(array("statusCode"=>200));
 			}
 			else {
 				echo json_encode(array("statusCode"=>201));

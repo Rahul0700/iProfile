@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // Validate Password
   $('input[type=password]').keyup(function() {
     var pswd = $('#password').val();
     if ( pswd.length < 8 ) {
@@ -11,15 +12,11 @@ $(document).ready(function() {
     } else {
         $('#letter').removeClass('valid').addClass('invalid');
     }
-
-    //validate capital letter
     if ( pswd.match(/[A-Z]/) ) {
         $('#capital').removeClass('invalid').addClass('valid');
     } else {
         $('#capital').removeClass('valid').addClass('invalid');
     }
-
-    //validate number
     if ( pswd.match(/\d/) ) {
         $('#number').removeClass('invalid').addClass('valid');
     } else {
@@ -30,6 +27,7 @@ $(document).ready(function() {
   }).blur(function() {
       $('#pswd_info').hide();
   });
+  // Form Validation
  function required(name,email,password) {
    if (!password.match(/[A-z]/)  || !password.match(/\d/) || password.length < 8 || !password.match(/[A-Z]/)) {
       alert("Your password isn't strong would you like to continue ")
@@ -53,6 +51,7 @@ $(document).ready(function() {
      return true;
    }
 }
+// Form submission
 $('#register').on('click', function() {
   $("#register").attr("disabled", "disabled");
   var name = $('#name').val();

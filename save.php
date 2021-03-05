@@ -30,7 +30,6 @@
 		if (mysqli_num_rows($check)>0)
 		{
 			$_SESSION['email']=$email;
-			header("Location:welcome.php");
 			echo json_encode(array("statusCode"=>200));
 		}
 		else{
@@ -52,7 +51,7 @@
 			$sql = "UPDATE iprofile SET dob = '$dob', phone = $phone, city = '$city'
 			WHERE email = '$email'";
 			if (mysqli_query($conn, $sql)) {
-				header("Location:welcome.php");
+				echo json_encode(array("statusCode"=>200));
 			}
 			else {
 				echo json_encode(array("statusCode"=>201));

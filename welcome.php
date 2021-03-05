@@ -21,48 +21,53 @@
           <?php
           include 'database.php';
           session_start();
-          $email = $_SESSION['email'];
-          $progress = 100;
+          if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            $email = $_SESSION['email'];
+            $progress = 100;
 
-          $sql = "SELECT * FROM iprofile where email='$email'";
-          $result = $conn->query($sql);
+            $sql = "SELECT * FROM iprofile where email='$email'";
+            $result = $conn->query($sql);
 
-          if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-              $name=$row["name"];
-              $dob=$row["dob"];
-              $phone=$row["phone"];
-              $city=$row["city"];
+            if ($result->num_rows > 0) {
+              while($row = $result->fetch_assoc()) {
+                $name=$row["name"];
+                $dob=$row["dob"];
+                $phone=$row["phone"];
+                $city=$row["city"];
+              }
+            }
+            else {
+              echo "Error";
+            }
+            mysqli_close($conn);
+            echo '<h5 class="card-title">' . $name.'</h5>';
+            echo '</div>';
+            echo '<ul class="list-group list-group-flush">';
+            echo '<li class="list-group-item"> Email : '. $email.'</li>';
+            if ($dob=="" && $phone=="" && $city=="")
+            {
+              echo '</ul>';
+              $progress=$progress-60;
+              echo '<div class="mt-2">Profile status</div>';
+              echo '<div class="progress my-2">';
+              echo '<div class="progress-bar progress-bar-striped bg-success" style="width: '.$progress.'%;" role="progressbar" aria-valuenow="'.$progress.'" aria-valuemin="0" aria-valuemax="100">'.$progress.'%</div>';
+              echo '</div>';
+              echo '<div class="card-body">';
+              echo '<a href="update.php" class="card-link text-decoration-none">Complete profile</a>';
+              echo '<a href="logout.php" class="card-link text-decoration-none">Logout</a>';
+              echo '</div>';
+            }else{
+              echo '<li class="list-group-item"> DOB : '. $dob.'</li>';
+              echo '<li class="list-group-item"> Phone : '. $phone.'</li>';
+              echo '<li class="list-group-item"> City : '. $city.'</li>';
+              echo '<div class="card-body">';
+              echo '<a href="update.php" class="card-link text-decoration-none">Update profile</a>';
+              echo '<a href="logout.php" class="card-link text-decoration-none">Logout</a>';
+              echo '</div>';
             }
           }
           else {
-            echo "Error";
-          }
-          mysqli_close($conn);
-          echo '<h5 class="card-title">' . $name.'</h5>';
-          echo '</div>';
-          echo '<ul class="list-group list-group-flush">';
-          echo '<li class="list-group-item"> Email : '. $email.'</li>';
-          if ($dob=="" && $phone=="" && $city=="")
-          {
-            echo '</ul>';
-            $progress=$progress-60;
-            echo '<div class="mt-2">Profile status</div>';
-            echo '<div class="progress my-2">';
-            echo '<div class="progress-bar progress-bar-striped bg-success" style="width: '.$progress.'%;" role="progressbar" aria-valuenow="'.$progress.'" aria-valuemin="0" aria-valuemax="100">'.$progress.'%</div>';
-            echo '</div>';
-            echo '<div class="card-body">';
-            echo '<a href="update.php" class="card-link text-decoration-none">Complete profile</a>';
-            echo '<a href="logout.php" class="card-link text-decoration-none">Logout</a>';
-            echo '</div>';
-          }else{
-            echo '<li class="list-group-item"> DOB : '. $dob.'</li>';
-            echo '<li class="list-group-item"> Phone : '. $phone.'</li>';
-            echo '<li class="list-group-item"> City : '. $city.'</li>';
-            echo '<div class="card-body">';
-            echo '<a href="update.php" class="card-link text-decoration-none">Update profile</a>';
-            echo '<a href="logout.php" class="card-link text-decoration-none">Logout</a>';
-            echo '</div>';
+            echo "<script> location.href='login.php';alert('You dont have access to the page Please login to continue') </script>";
           }
           ?>
       </div>

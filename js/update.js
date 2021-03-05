@@ -10,7 +10,7 @@ $(document).ready(function() {
         url: "save.php",
         type: "POST",
         data: {
-          type:3,
+          type:2,
           email: email,
           phone: phone,
           dob: dob,

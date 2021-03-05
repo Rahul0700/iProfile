@@ -50,8 +50,13 @@
             </div>
             <?php
             session_start();
-            $email = $_SESSION['email'];
-            echo '<input type="hidden" id="email" value="'.$email.'">'
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+              $email = $_SESSION['email'];
+              echo '<input type="hidden" id="email" value="'.$email.'">';
+            }
+            else {
+              echo "<script> location.href='login.php';alert('You dont have access to the page Please login to continue') </script>";
+            }
             ?>
             <button type="submit" id="update" class="btn btn-primary">Update</button>
             <a href="welcome.php">

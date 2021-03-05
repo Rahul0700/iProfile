@@ -25,21 +25,6 @@
 	}
 	if($_POST['type']==2){
 		$email=$_POST['email'];
-		$password=$_POST['password'];
-		$check=mysqli_query($conn,"select * from iprofile where email='$email' and password='$password'");
-		if (mysqli_num_rows($check)>0)
-		{
-			$_SESSION['email']=$email;
-			$_SESSION['loggedin'] = true;
-			echo json_encode(array("statusCode"=>200));
-		}
-		else{
-			echo json_encode(array("statusCode"=>201));
-		}
-		mysqli_close($conn);
-	}
-	if($_POST['type']==3){
-		$email=$_POST['email'];
 		$dob=$_POST['dob'];
 		$phone=$_POST['phone'];
 		$city=$_POST['city'];

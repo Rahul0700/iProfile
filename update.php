@@ -22,7 +22,7 @@
     <nav class="navbar navbar-light bg-white">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="./img/logo.jpg" width="250" height="auto" alt="">
+          <img src="./img/logo.svg" width="250" height="auto" alt="">
         </a>
       </div>
     </nav>

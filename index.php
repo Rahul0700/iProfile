@@ -23,7 +23,7 @@
     <nav class="navbar navbar-light bg-white">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="./img/logo.jpg" width="250" height="auto" alt="">
+          <img src="./img/logo.svg" width="250" height="auto" alt="">
         </a>
       </div>
     </nav>
@@ -64,6 +64,10 @@
               </div>
             </div>
             <button type="submit" id="register" class="btn btn-primary">Register</button>
+            <div class="float-end">
+              Already have an account?
+              <a href="login.php">Login</a>
+            </div>
           </form>
         </div>
       </div>

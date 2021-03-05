@@ -16,7 +16,7 @@
   <body>
     <div class="container">
       <div class="card border shadow-lg p-3 position-absolute top-50 start-50 translate-middle bg-body rounded" style="width: 19rem;">
-        <img src="./img/profile-pic.jpg" class="card-img-top" alt="...">
+        <img src="./img/profile-pic.svg" class="card-img-top" alt="...">
         <div class="card-body">
           <?php
           include 'database.php';

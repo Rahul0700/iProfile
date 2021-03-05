@@ -54,6 +54,9 @@
             echo '<input type="hidden" id="email" value="'.$email.'">'
             ?>
             <button type="submit" id="update" class="btn btn-primary">Update</button>
+            <a href="welcome.php">
+              <button type="button" class="btn btn-danger">Close</button>
+            </a>
           </form>
         </div>
       </div>

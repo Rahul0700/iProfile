@@ -46,6 +46,13 @@
             </div>
             <button type="submit" id="login" class="btn btn-primary">Login</button>
           </form>
+          <?php
+          // Safety measure if ajax pipeline did not respond
+          session_start();
+          if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            echo "<script> location.href='welcome.php'; </script>";
+          }
+          ?>
         </div>
       </div>
     </div>

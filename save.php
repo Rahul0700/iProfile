@@ -30,6 +30,7 @@
 		if (mysqli_num_rows($check)>0)
 		{
 			$_SESSION['email']=$email;
+			$_SESSION['loggedin'] = true;
 			echo json_encode(array("statusCode"=>200));
 		}
 		else{

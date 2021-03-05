@@ -35,24 +35,17 @@
           <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error" style="display:none">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
-          <form method="post">
+          <form method="post" action="authenticate.php">
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="email">
+              <input type="email" name="email" class="form-control" id="email">
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password">
+              <input type="password" name="password" class="form-control" id="password">
             </div>
-            <button type="submit" id="login" class="btn btn-primary">Login</button>
+            <button type="submit" name="submit" class="btn btn-primary">Login</button>
           </form>
-          <?php
-          // Safety measure if ajax pipeline did not respond
-          session_start();
-          if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-            echo "<script> location.href='welcome.php'; </script>";
-          }
-          ?>
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$db="profile_management";
+	$servername = "sql6.freemysqlhosting.net";
+	$username = "sql6396908";
+	$password = "ffxSsuGl8u";
+	$db="sql6396908";
 	$conn = mysqli_connect($servername, $username, $password,$db) or die("Error " . mysqli_error($connection));
 	// Store in json
 	$sql = "select name,email,dob,city,phone from iprofile";

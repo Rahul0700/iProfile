@@ -15,8 +15,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <!-- User definedd style sheets -->
     <link rel="stylesheet" href="./css/main.scss">
-    <!-- User definedd script -->
-    <script src="./js/login.js" charset="utf-8"></script>
   </head>
   <body>
     <nav class="navbar navbar-light bg-white">
@@ -30,7 +28,7 @@
       <div class="row">
         <div class="col md-6 d-none d-lg-block mt-5" id="bg">
         </div>
-        <div class="col-lg-6 col-12 border shadow-lg bg-body rounded pb-5 px-4 bg-light mt-5">
+        <div id="formdiv" class="col-lg-6 col-12 border shadow-lg bg-body rounded pb-5 px-4 bg-light mt-5">
           <h3 class="py-3">Login</h3>
           <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error" style="display:none">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

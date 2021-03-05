@@ -5,7 +5,8 @@
 		$name=$_POST['name'];
 		$email=$_POST['email'];
 		$password=$_POST['password'];
-
+		$hash = password_hash($password,
+		          PASSWORD_DEFAULT);
 		$duplicate=mysqli_query($conn,"select * from iprofile where email='$email'");
 		if (mysqli_num_rows($duplicate)>0)
 		{
@@ -13,7 +14,7 @@
 		}
 		else{
 			$sql = "INSERT INTO `iprofile`( `name`, `email`, `password`)
-			VALUES ('$name','$email','$password')";
+			VALUES ('$name','$email','$hash')";
 			if (mysqli_query($conn, $sql)) {
 				echo json_encode(array("statusCode"=>200));
 			}

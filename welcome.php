@@ -55,7 +55,8 @@
             echo '<div class="progress-bar progress-bar-striped bg-success" style="width: '.$progress.'%;" role="progressbar" aria-valuenow="'.$progress.'" aria-valuemin="0" aria-valuemax="100">'.$progress.'%</div>';
             echo '</div>';
             echo '<div class="card-body">';
-            echo '<a href="#" class="card-link text-decoration-none">Complete profile</a>';
+            echo '<a href="update.php" class="card-link text-decoration-none">Complete profile</a>';
+            echo '<a href="logout.php" class="card-link text-decoration-none">Logout</a>';
             echo '</div>';
           }else{
             echo '<li class="list-group-item"> DOB : '. $dob.'</li>';

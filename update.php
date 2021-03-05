@@ -42,20 +42,29 @@
         <div class="col md-6 d-none d-lg-block mt-5" id="bg">
         </div>
         <div class="col-lg-6 col-12 border shadow-lg bg-body rounded pb-5 px-4 bg-light mt-5">
-          <h3 class="py-3">Login</h3>
+          <h3 class="py-3">Profiile Update</h3>
           <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error" style="display:none">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           <form method="post">
             <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="email">
+              <label for="dob" class="form-label">Date of Birth</label>
+              <input type="date" class="form-control" id="dob">
             </div>
             <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="number" class="form-control" id="phone">
             </div>
-            <button type="submit" id="login" class="btn btn-primary">Login</button>
+            <div class="mb-3">
+              <label for="city" class="form-label">City</label>
+              <input type="text" class="form-control" id="city">
+            </div>
+            <?php
+            session_start();
+            $email = $_SESSION['email'];
+            echo '<input type="hidden" id="email" value="'.$email.'">'
+            ?>
+            <button type="submit" id="update" class="btn btn-primary">Update</button>
           </form>
         </div>
       </div>
@@ -64,17 +73,21 @@
   <script>
   // Form submission
   $(document).ready(function() {
-    $('#login').on('click', function() {
-  		var email = $('#email').val();
-  		var password = $('#password').val();
-  		if(email!="" && password!="" ){
+    $('#update').on('click', function() {
+  		var dob = $('#dob').val();
+  		var phone = $('#phone').val();
+      var city = $('#city').val();
+      var email = $('#email').val();
+  		if(dob!="" && phone!="" && city!="" ){
   			$.ajax({
   				url: "save.php",
   				type: "POST",
   				data: {
-  					type:2,
+  					type:3,
   					email: email,
-  					password: password
+  					phone: phone,
+            dob: dob,
+            city:city
   				},
   				cache: false,
   				success: function(dataResult){
@@ -82,9 +95,9 @@
   					if(dataResult.statusCode==200){
   						location.href = "welcome.php";
   					}
-  					else if(dataResult.statusCode==201){
+  					else{
   						$("#error").show();
-  						$('#error').html('Invalid EmailId or Password !');
+  						$('#error').html(dataResult.statusCode);
   					}
 
   				}

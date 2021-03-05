@@ -13,21 +13,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <style media="screen">
-    body{
-      background-color:#5394b0;
-    }
-    #bg
-    {
-      background:url(./img/bg-img.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
-    h3 {
-      font-family: 'Pacifico', cursive;
-    }
-    </style>
+    <!-- User definedd style sheets -->
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- User definedd script -->
+    <script src="./js/update.js" charset="utf-8"></script>
   </head>
   <body>
     <nav class="navbar navbar-light bg-white">
@@ -70,43 +59,4 @@
       </div>
     </div>
   </body>
-  <script>
-  // Form submission
-  $(document).ready(function() {
-    $('#update').on('click', function() {
-  		var dob = $('#dob').val();
-  		var phone = $('#phone').val();
-      var city = $('#city').val();
-      var email = $('#email').val();
-  		if(dob!="" && phone!="" && city!="" ){
-  			$.ajax({
-  				url: "save.php",
-  				type: "POST",
-  				data: {
-  					type:3,
-  					email: email,
-  					phone: phone,
-            dob: dob,
-            city:city
-  				},
-  				cache: false,
-  				success: function(dataResult){
-  					var dataResult = JSON.parse(dataResult);
-  					if(dataResult.statusCode==200){
-  						location.href = "welcome.php";
-  					}
-            else if(dataResult.statusCode==201){
-  						$("#error").show();
-  						$('#error').html('Invalid Request !');
-  					}
-
-  				}
-  			});
-  		}
-  		else{
-  			alert('Please fill all the field !');
-  		}
-  	});
-  });
-  </script>
 </html>

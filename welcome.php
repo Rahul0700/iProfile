@@ -60,6 +60,7 @@
             echo '<li class="list-group-item"> Phone : '. $phone.'</li>';
             echo '<li class="list-group-item"> City : '. $city.'</li>';
             echo '<div class="card-body">';
+            echo '<a href="update.php" class="card-link text-decoration-none">Update profile</a>';
             echo '<a href="logout.php" class="card-link text-decoration-none">Logout</a>';
             echo '</div>';
           }

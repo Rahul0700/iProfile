@@ -74,7 +74,6 @@
     </div>
     <div class="container-fluid">
       <a class="fw-lighter text-decoration-none text-light p-2 m-0" style="font-size:.5em;" href="https://www.freepik.com/vectors/people">People vector created by grmarc - www.freepik.com</a>
-      <div class="fw-lighter text-decoration-none text-light p-2" style="font-size:.5em;">Logo made by <a class="fw-lighter text-decoration-none text-light" href="https://www.designevo.com/" title="Free Online Logo Maker">DesignEvo free logo creator</a></div>
     </div>
   </body>
 </html>

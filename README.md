@@ -2,9 +2,6 @@
 
 This project is by the problem statement for the Web Development role in Guvi Internship Program
 
-The application can be viewed on :
-
->https://iprofile7.herokuapp.com/
 
 Project Discussion
 

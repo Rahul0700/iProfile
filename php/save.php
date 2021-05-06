@@ -13,15 +13,14 @@
 			echo json_encode(array("statusCode"=>201));
 		}
 		else{
-			$sql = "INSERT INTO `iprofile`( `name`, `email`, `password`)
-			VALUES ('$name','$email','$hash')";
-			if (mysqli_query($conn, $sql)) {
+			if ($registerstmt->execute()) {
 				echo json_encode(array("statusCode"=>200));
 			}
 			else {
 				echo json_encode(array("statusCode"=>201));
 			}
 		}
+		$registerstmt->close();
 		mysqli_close($conn);
 	}
 	if($_POST['type']==2){
@@ -35,15 +34,14 @@
 			echo json_encode(array("statusCode"=>201));
 		}
 		else{
-			$sql = "UPDATE iprofile SET dob = '$dob', phone = $phone, city = '$city'
-			WHERE email = '$email'";
-			if (mysqli_query($conn, $sql)) {
+			if ($updatestmt->execute()) {
 				echo json_encode(array("statusCode"=>200));
 			}
 			else {
 				echo json_encode(array("statusCode"=>201));
 			}
 		}
+		$updatestmt->close();
 		mysqli_close($conn);
 	}
 ?>

@@ -5,9 +5,10 @@ $(document).ready(function() {
     var phone = $('#phone').val();
     var city = $('#city').val();
     var email = $('#email').val();
+    console.log("HEello");
     if(dob!="" && phone!="" && city!="" ){
       $.ajax({
-        url: "save.php",
+        url: "./php/save.php",
         type: "POST",
         data: {
           type:2,
@@ -20,7 +21,7 @@ $(document).ready(function() {
         success: function(dataResult){
           var dataResult = JSON.parse(dataResult);
           if(dataResult.statusCode==200){
-            location.href = "welcome.php";
+            location.href = "welcome.html";
           }
           else if(dataResult.statusCode==201){
             $("#error").show();

@@ -18,14 +18,14 @@ if ( isset( $_POST['submit'] ) )
   }
   $verify = password_verify($password, $hash);
   if($_POST['email']=="" || $_POST['password']==""){
-      echo "<script> location.href='login.php';alert('Please fill all the fields') </script>";
+      echo "<script> location.href='../login.html';alert('Please fill all the fields') </script>";
     }
   if ($verify) {
     $_SESSION['email']=$email;
     $_SESSION['loggedin'] = true;
-    echo "<script> location.href='welcome.php'; </script>";
+    echo "<script> location.href='../welcome.html'; </script>";
   } else {
-      echo "<script> location.href='login.php';alert('Email id and password did not match') </script>";
+      echo "<script> location.href='../login.html';alert('Email id and password did not match') </script>";
   }
   mysqli_close($conn);
 }

@@ -59,7 +59,7 @@ $('#register').on('click', function() {
   var password = $('#password').val();
   if (required(name,email,password)) {
     $.ajax({
-      url: "save.php",
+      url: "./php/save.php",
       type: "POST",
       data: {
         type: 1,
@@ -71,7 +71,7 @@ $('#register').on('click', function() {
       success: function(dataResult){
         var dataResult = JSON.parse(dataResult);
         if(dataResult.statusCode==200){
-          location.href = "login.php";
+          location.href = "login.html";
         }
         else if(dataResult.statusCode==201){
           $("#error").show();

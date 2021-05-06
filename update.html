@@ -19,65 +19,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <!-- User definedd style sheets -->
     <link rel="stylesheet" href="./css/main.scss">
-    <link rel="stylesheet" href="./css/pswd_info.scss">
     <!-- User definedd script -->
-    <script src="./js/registration.js" charset="utf-8"></script>
+    <script src="./js/update.js" charset="utf-8"></script>
+    <!-- Session info php file -->
+    <?php include './php/session.php';?>
   </head>
   <body>
     <nav class="navbar navbar-light bg-white">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.html">
           <img src="./img/logo.svg" width="250" height="auto" alt="">
         </a>
       </div>
     </nav>
     <div class="container">
       <div class="row">
-
         <div class="col md-6 d-none d-lg-block mt-5" id="bg">
         </div>
         <div class="col-lg-6 col-12 border shadow-lg bg-body rounded pb-5 px-4 bg-light mt-5">
-
-          <h3 class="py-3">Signup</h3>
+          <h3 class="py-3">Profiile Update</h3>
           <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error" style="display:none">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           <form method="post">
             <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" required>
-              <div id="nameHelp" class="form-text" style="display:none"></div>
+              <label for="dob" class="form-label">Date of Birth</label>
+              <input type="date" class="form-control" id="dob">
             </div>
             <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              <label for="phone" class="form-label">Phone</label>
+              <input type="number" class="form-control" id="phone">
             </div>
             <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" required>
-              <div id="pswdHelp" class="form-text" style="display:none"></div>
-              <div id="pswd_info">
-                  <h4>Password must meet the following requirements:</h4>
-                  <ul>
-                      <li id="letter" class="invalid">At least <strong>one letter</strong></li>
-                      <li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
-                      <li id="number" class="invalid">At least <strong>one number</strong></li>
-                      <li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
-                  </ul>
-              </div>
+              <label for="city" class="form-label">City</label>
+              <input type="text" class="form-control" id="city">
             </div>
-            <button type="submit" id="register" class="btn btn-primary">Register</button>
-            <div class="float-end">
-              Already have an account?
-              <a href="login.php">Login</a>
-            </div>
+            <button type="submit" id="update" class="btn btn-primary">Update</button>
+            <a href="welcome.html">
+              <button type="button" class="btn btn-danger">Back</button>
+            </a>
           </form>
         </div>
       </div>
-    </div>
-    <div class="container-fluid">
-      <a class="fw-lighter text-decoration-none text-light p-2 m-0" style="font-size:.5em;" href="https://www.freepik.com/vectors/people">People vector created by grmarc - www.freepik.com</a>
     </div>
   </body>
 </html>

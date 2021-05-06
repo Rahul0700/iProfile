@@ -1,4 +1,1 @@
-<Files yourpage.html>
-AddType application/x-httpd-php .html 
-//you may need to use x-httpd-php5 if you are using php 5 or higher
-</Files>
+AddHandler cgi-script .html .htm

@@ -7,7 +7,7 @@ if ( isset( $_POST['submit'] ) )
   $password=$_POST['password'];
 
 
-  // If any empty fields return 
+  // If any empty fields return extra check
   if($_POST['email']=="" || $_POST['password']==""){
     echo "<script> location.href='../login.html';alert('Please fill all the fields') </script>";
   }

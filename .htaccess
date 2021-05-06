@@ -1,1 +1,3 @@
-AddHandler x-httpd-php .html .htm
+AddHandler application/x-httpd-php54 .php
+//To add other extension
+AddType application/x-httpd-php54 .html .htm

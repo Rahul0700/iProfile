@@ -30,7 +30,8 @@ $(document).ready(function() {
   // Form Validation
  function required(name,email,password) {
    if (!password.match(/[A-z]/)  || !password.match(/\d/) || password.length < 8 || !password.match(/[A-Z]/)) {
-      alert("Your password isn't strong would you like to continue ")
+      alert("Your password isn't strong");
+      return false;
     }
   if( name == ''  || name == "null") {
       $("#nameHelp").show();

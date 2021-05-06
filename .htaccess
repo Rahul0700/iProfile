@@ -1,2 +1,1 @@
-AddHandler application/x-httpd-php54 .php
-AddType application/x-httpd-php54 .html .htm
+RewriteRule ^([^.]+)\.html$ $1.php [L]

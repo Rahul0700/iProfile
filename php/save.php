@@ -1,6 +1,9 @@
 <?php
 	include 'database.php';
 	session_start();
+
+	
+	// User Registration call 
 	if($_POST['type']==1){
 		$name=$_POST['name'];
 		$email=$_POST['email'];
@@ -23,6 +26,9 @@
 		$registerstmt->close();
 		mysqli_close($conn);
 	}
+
+
+	// User Detail updation call  
 	if($_POST['type']==2){
 		if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			$email = $_SESSION['email'];

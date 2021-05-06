@@ -5,9 +5,17 @@ if ( isset( $_POST['submit'] ) )
 {
   $email=$_POST['email'];
   $password=$_POST['password'];
+
+
+  // If any empty fields return 
+  if($_POST['email']=="" || $_POST['password']==""){
+    echo "<script> location.href='../login.html';alert('Please fill all the fields') </script>";
+  }
+
+
+  // If more than one user with same email thrw error
   $sql = "SELECT * FROM iprofile where email='$email'";
   $result = $conn->query($sql);
-
   if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
       $hash=$row["password"];
@@ -16,10 +24,10 @@ if ( isset( $_POST['submit'] ) )
   else {
     echo "Error";
   }
+
+
+  // Validate
   $verify = password_verify($password, $hash);
-  if($_POST['email']=="" || $_POST['password']==""){
-      echo "<script> location.href='../login.html';alert('Please fill all the fields') </script>";
-    }
   if ($verify) {
     $_SESSION['email']=$email;
     $_SESSION['loggedin'] = true;

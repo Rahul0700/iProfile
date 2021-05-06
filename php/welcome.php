@@ -16,62 +16,70 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- User definedd style sheets -->
     <link rel="stylesheet" href="../css/main.scss">
+    <?php
+      include 'database.php';
+      session_start();
+      if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        $email = $_SESSION['email'];
+
+
+        // Collect current user data
+        $sql = "SELECT * FROM iprofile where email='$email'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+            $name=$row["name"];
+            $dob=$row["dob"];
+            $phone=$row["phone"];
+            $city=$row["city"];
+          }
+        }
+        else {
+          echo "Error";
+        }
+        mysqli_close($conn);   
+      }
+      else {
+        echo "<script> location.href='../login.html';alert('You dont have access to the page Please login to continue') </script>";
+      }
+    ?>
   </head>
   <body>
     <div class="container">
       <div class="card border shadow-lg p-3 position-absolute top-50 start-50 translate-middle bg-body rounded" style="width: 19rem;">
         <img src="../img/profile-pic.svg" class="card-img-top" alt="...">
         <div class="card-body">
-        <?php
-          include 'database.php';
-          session_start();
-          if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-              $email = $_SESSION['email'];
-
-              $sql = "SELECT * FROM iprofile where email='$email'";
-              $result = $conn->query($sql);
-
-              if ($result->num_rows > 0) {
-                  while($row = $result->fetch_assoc()) {
-                      $name=$row["name"];
-                      $dob=$row["dob"];
-                      $phone=$row["phone"];
-                      $city=$row["city"];
-                      }
-                  }
-              else {
-                  echo "Error";
-              }
-              mysqli_close($conn);
-              echo '<h5 class="card-title">' . $name.'</h5>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                  <li class="list-group-item"> Email : '. $email.'</li>';
-              if ($dob=="" && $phone=="" && $city=="")
-              {
-                  echo '</ul>
-                      <div class="mt-2">Profile status</div>
-                      <div class="progress my-2">
-                      <div class="progress-bar progress-bar-striped bg-success" style="width: 40%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40 %</div>
-                      </div>
-                      <div class="card-body">
-                      <a href="../update.html" class="card-link text-decoration-none">Complete profile</a>
-                      <a href="logout.php" class="card-link text-decoration-none">Logout</a>
-                      </div>';
-              }else{
-                  echo '<li class="list-group-item"> DOB : '. $dob.'</li>
+          <h5 class="card-title"><?php echo $name; ?></h5>
+        </div>
+          <?php
+            if ($dob=="" && $phone=="" && $city=="")
+            {
+              echo '
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"> Email : '. $email.'</li>
+                </ul>
+                <div class="mt-2">Profile status</div>
+                <div class="progress my-2">
+                  <div class="progress-bar progress-bar-striped bg-success" style="width: 40%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40 %</div>
+                </div>
+                <div class="card-body">
+                  <a href="../update.html" class="card-link text-decoration-none">Complete profile</a>
+                  <a href="logout.php" class="card-link text-decoration-none">Logout</a>
+                </div>';
+            }else{
+              echo '
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"> Email : '. $email.'</li>
+                  <li class="list-group-item"> DOB : '. $dob.'</li>
                   <li class="list-group-item"> Phone : '. $phone.'</li>
                   <li class="list-group-item"> City : '. $city.'</li>
-                  <div class="card-body">
+                </ul>
+                <div class="card-body">
                   <a href="../update.html" class="card-link text-decoration-none">Update profile</a>
                   <a href="logout.php" class="card-link text-decoration-none">Logout</a>
-                  </div>';
-              }
-          }
-          else {
-              echo "<script> location.href='../login.html';alert('You dont have access to the page Please login to continue') </script>";
-          }
-      ?>
+                </div>';
+            }
+          ?>       
       </div>
     </div>
   </body>

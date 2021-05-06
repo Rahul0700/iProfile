@@ -35,7 +35,7 @@ $(document).ready(function() {
   if( name == ''  || name == "null") {
       $("#nameHelp").show();
       $('#nameHelp').html('This field is required');
-      return false;               // Your code to handle error
+      return false;               
    }
    else if (email == ''  || email == "null") {
      $("#emailHelp").show();

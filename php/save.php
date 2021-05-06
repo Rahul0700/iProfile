@@ -24,7 +24,9 @@
 		mysqli_close($conn);
 	}
 	if($_POST['type']==2){
-		$email=$_POST['email'];
+		if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+			$email = $_SESSION['email'];
+		}
 		$dob=$_POST['dob'];
 		$phone=$_POST['phone'];
 		$city=$_POST['city'];

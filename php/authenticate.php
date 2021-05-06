@@ -23,7 +23,7 @@ if ( isset( $_POST['submit'] ) )
   if ($verify) {
     $_SESSION['email']=$email;
     $_SESSION['loggedin'] = true;
-    echo "<script> location.href='../welcome.html'; </script>";
+    echo "<script> location.href='./welcome.php'; </script>";
   } else {
       echo "<script> location.href='../login.html';alert('Email id and password did not match') </script>";
   }

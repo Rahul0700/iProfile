@@ -7,12 +7,6 @@ if ( isset( $_POST['submit'] ) )
   $password=$_POST['password'];
 
 
-  // If any empty fields return extra check
-  if($_POST['email']=="" || $_POST['password']==""){
-    echo "<script> location.href='../login.html';alert('Please fill all the fields') </script>";
-  }
-
-
   // If more than one user with same email thrw error
   $sql = "SELECT * FROM iprofile where email='$email'";
   $result = $conn->query($sql);

@@ -29,25 +29,13 @@ $(document).ready(function() {
   });
   // Form Validation
  function required(name,email,password) {
-   if (!password.match(/[A-z]/)  || !password.match(/\d/) || password.length < 8 || !password.match(/[A-Z]/)) {
-      alert("Your password isn't strong");
-      return false;
-    }
-  if( name == ''  || name == "null") {
-      $("#nameHelp").show();
-      $('#nameHelp').html('This field is required');
+  if( name == ''  || name == "null" || email == ''  || email == "null" || password == ''  || password == "null") {
       return false;               
    }
-   else if (email == ''  || email == "null") {
-     $("#emailHelp").show();
-     $('#emailHelp').html('This field is required');
-     return false;
-   }
-   else if (password == ''  || password == "null") {
-     $("#pswdHelp").show();
-     $('#pswdHelp').html('This field is required');
-     return false;
-   }
+   else if (!password.match(/[A-z]/)  || !password.match(/\d/) || password.length < 8 || !password.match(/[A-Z]/)) {
+    alert("Your password isn't strong");
+    return false;
+  }
    else{
      return true;
    }

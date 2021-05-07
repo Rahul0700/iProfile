@@ -11,18 +11,4 @@
 	$updatestmt = $conn->prepare("UPDATE iprofile SET dob = ?, phone = ?, city = ?
 	WHERE email = ?");
 	$updatestmt->bind_param("siss", $dob, $phone, $city, $email);
-
-	
-	// Store in json
-	$sql = "select * from iprofile";
-	$result = mysqli_query($conn, $sql) or die("Error in Selecting " . mysqli_error($conn));
-
-	$emparray = array();
-	while($row =mysqli_fetch_assoc($result))
-	{
-			$emparray[] = $row;
-	}
-	$fp = fopen('../data.json', 'w');
-	fwrite($fp, json_encode($emparray));
-	fclose($fp);
 ?>

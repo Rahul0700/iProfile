@@ -25,7 +25,7 @@
         echo "<script> location.href='login.html';alert('You dont have access to the page Please login to continue') </script>";
       }
       echo '<div class="card-body">
-            <h5 class="card-title"><?php echo $name; ?></h5>
+            <h5 class="card-title">'.$name.'</h5>
             </div>';
       if ($dob=="" && $phone=="" && $city=="")
       {

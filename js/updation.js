@@ -18,7 +18,7 @@ $(document).ready(function() {
         success: function(dataResult){
           var dataResult = JSON.parse(dataResult);
           if(dataResult.statusCode==200){
-            location.href = "../home.html";
+            location.href = "home.html";
           }
           else if(dataResult.statusCode==201){
             $("#error").show();
@@ -27,6 +27,7 @@ $(document).ready(function() {
 
         }
       });
+      alert('Your details have been updated');
     }
     else{
       alert('Please fill all the field !');

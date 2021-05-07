@@ -22,7 +22,7 @@
 	{
 			$emparray[] = $row;
 	}
-	$fp = fopen('../data.json', 'w');
+	$fp = fopen('https://iprofile7.herokuapp.com/data.json', 'w');
 	fwrite($fp, json_encode($emparray));
 	fclose($fp);
 ?>

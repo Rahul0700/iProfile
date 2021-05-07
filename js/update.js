@@ -18,7 +18,7 @@ $(document).ready(function() {
         success: function(dataResult){
           var dataResult = JSON.parse(dataResult);
           if(dataResult.statusCode==200){
-            location.href = "../php/welcome.php";
+            location.href = "../home.html";
           }
           else if(dataResult.statusCode==201){
             $("#error").show();

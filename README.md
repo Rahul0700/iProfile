@@ -18,6 +18,6 @@ Project Discussion
 9. User data is stored across the MySQL database and data.json file
 10. The application is hosted on the Heroku
 
-```
-The application can be viewed on https://iprofile070.herokuapp.com/
-```
+
+The application can be viewed on [iProfile](https://iprofile070.herokuapp.com/)
+

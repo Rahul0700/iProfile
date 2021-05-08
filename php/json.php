@@ -13,5 +13,5 @@
 	$fp = fopen('../data.json', 'w');
 	fwrite($fp, json_encode($emparray));
 	fclose($fp);
-	header("Location:../data.json");
+	// header("Location:../data.json");
 ?>

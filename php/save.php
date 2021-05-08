@@ -1,6 +1,5 @@
 <?php
 	include 'database.php';
-	session_start();
 
 	
 	// User Registration call 
@@ -30,9 +29,7 @@
 
 	// User Detail updation call  
 	if($_POST['type']==2){
-		if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-			$email = $_SESSION['email'];
-		}
+		$email=$_POST['email'];
 		$dob=$_POST['dob'];
 		$phone=$_POST['phone'];
 		$city=$_POST['city'];
@@ -50,6 +47,37 @@
 			}
 		}
 		$updatestmt->close();
+		mysqli_close($conn);
+	}
+
+
+	// User autheticate call  
+	if($_POST['type']==3){
+		$email=$_POST['email'];
+		$password=$_POST['password'];
+		  
+		  
+		// If more than one user with same email thrw error
+		$sql = "SELECT * FROM iprofile where email='$email'";
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+				$hash=$row["password"];
+			}
+		}
+		else {
+			echo json_encode(array("statusCode"=>201));
+		}
+		  
+		  
+		// Validate
+		$verify = password_verify($password, $hash);
+		if ($verify) {
+			echo json_encode(array("statusCode"=>200, "email"=>$email, "loggedin"=>true));
+		} 
+		else {
+			echo json_encode(array("statusCode"=>201));
+		}
 		mysqli_close($conn);
 	}
 ?>

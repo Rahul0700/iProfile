@@ -1,6 +1,8 @@
 // Form submission
 $(document).ready(function() {
+  document.getElementById("loggeduser").innerHTML=localStorage.getItem("email")+" is logged in";
   $('#update').on('click', function() {
+    var email = localStorage.getItem("email");
     var dob = $('#dob').val();
     var phone = $('#phone').val();
     var city = $('#city').val();
@@ -10,6 +12,7 @@ $(document).ready(function() {
         type: "POST",
         data: {
           type:2,
+          email:email,
           phone: phone,
           dob: dob,
           city:city

@@ -19,6 +19,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <!-- User definedd style sheets -->
     <link rel="stylesheet" href="./css/main.scss">
+    <!-- User definedd script -->
+    <script src="./js/authenticate.js" charset="utf-8"></script>
   </head>
   <body>
     <nav class="navbar navbar-light bg-white">
@@ -37,7 +39,7 @@
           <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error" style="display:none">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
-          <form method="post" action="./php/authenticate.php">
+          <form method="post">
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
               <input type="email" name="email" class="form-control" id="email" required>
@@ -46,7 +48,7 @@
               <label for="password" class="form-label">Password</label>
               <input type="password" name="password" class="form-control" id="password" required>
             </div>
-            <button type="submit" name="submit" class="btn btn-primary">Login</button>
+            <button type="submit" id="login" name="submit" class="btn btn-primary">Login</button>
           </form>
         </div>
       </div>

@@ -16,13 +16,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- User definedd style sheets -->
     <link rel="stylesheet" href="./css/main.scss">
+    <!-- User definedd script -->
+    <script src="./js/logout.js" charset="utf-8"></script>
+    <script src="./js/profile.js" charset="utf-8"></script>
   </head>
   <body>
     <div class="container">
       <div class="card border shadow-lg p-3 position-absolute top-50 start-50 translate-middle bg-body rounded" style="width: 19rem;">
         <img src="./img/profile-pic.svg" class="card-img-top" alt="...">
-        <?php include "./php/welcome.php" ?>       
+        <div class="card-body">
+          <h5 id="name" class="card-title"></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> Email : <span id="email"></span></li>
+          <li id="doblabel" class="list-group-item"> DOB : <span id="dob"></span></li>
+          <li id="phonelabel" class="list-group-item"> Phone : <span id="phone"></span></li>
+          <li id="citylabel" class="list-group-item"> City : <span id="city"></span></li>
+        </ul>
+        <div class="mt-2">Profile status</div>
+        <div class="progress my-2">
+          <div id="progressBar" class="progress-bar progress-bar-striped bg-success" style="width: 40%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="card-body">
+          <a href="update.html" class="card-link text-decoration-none">
+            <button type="button" class="btn btn-outline-primary">
+              Update profile
+            </button>
+          </a>
+          <button id="logout" type="button" class="btn btn-outline-danger">Logout</button>
+        </div>
       </div>
+    </div>
+    <div class="fixed-bottom">
+      <span class="bg-white p-1 rounded-end" id="loggeduser"></span>
     </div>
   </body>
 </html>

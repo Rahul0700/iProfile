@@ -52,8 +52,6 @@
 	// User autheticate call  
 	if($_POST['type']==3){
 		$email=$_POST['email'];
-		  
-		  
 		// If more than one user with same email thrw error
 		$sql = "SELECT * FROM iprofile where email='$email'";
 		$result = $conn->query($sql);

@@ -9,17 +9,21 @@
               type: "POST",
               data: {
                 type:3,
-                email: email,
-                password: password
+                email: email
               },
               cache: false,
               success: function(dataResult){
                 var dataResult = JSON.parse(dataResult);
                 if(dataResult.statusCode==200){
-                    window.localStorage;
-                    localStorage.setItem("email", dataResult.email);
-                    localStorage.setItem("loggedin", dataResult.loggedin);
+                  if(window.atob(dataResult.password)==password){
+                    localStorage.setItem("email", email);
+                    localStorage.setItem("loggedin", true);
                     location.href = "home.html";
+                  }
+                  else{
+                    $("#error").show();
+                    $('#error').html('Email and password unmatched');                    
+                  }
                 }
                 else if(dataResult.statusCode==201){
                   $("#error").show();

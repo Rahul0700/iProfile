@@ -6,7 +6,7 @@
 	// Prepared statements
 	$registerstmt = $conn->prepare("INSERT INTO `iprofile`( `name`, `email`, `password`)
 	VALUES (?,?,?)");
-	$registerstmt->bind_param("sss", $name, $email, $hash);
+	$registerstmt->bind_param("sss", $name, $email, $password);
 
 	$updatestmt = $conn->prepare("UPDATE iprofile SET dob = ?, phone = ?, city = ?
 	WHERE email = ?");

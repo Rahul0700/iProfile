@@ -46,6 +46,7 @@ $('#register').on('click', function() {
   var name = $('#name').val();
   var email = $('#email').val();
   var password = $('#password').val();
+  var hash = window.btoa(password);
   if (required(name,email,password)) {
     $.ajax({
       url: "./php/save.php",
@@ -54,7 +55,7 @@ $('#register').on('click', function() {
         type: 1,
         name: name,
         email: email,
-        password: password
+        password: hash
       },
       cache: false,
       success: function(dataResult){

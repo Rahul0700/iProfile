@@ -7,8 +7,6 @@
 		$name=$_POST['name'];
 		$email=$_POST['email'];
 		$password=$_POST['password'];
-		$hash = password_hash($password,
-		          PASSWORD_DEFAULT);
 		$duplicate=mysqli_query($conn,"select * from iprofile where email='$email'");
 		if (mysqli_num_rows($duplicate)>0)
 		{
@@ -54,7 +52,6 @@
 	// User autheticate call  
 	if($_POST['type']==3){
 		$email=$_POST['email'];
-		$password=$_POST['password'];
 		  
 		  
 		// If more than one user with same email thrw error
@@ -64,17 +61,8 @@
 			while($row = $result->fetch_assoc()) {
 				$hash=$row["password"];
 			}
+			echo json_encode(array("statusCode"=>200, "password"=>$hash));
 		}
-		else {
-			echo json_encode(array("statusCode"=>201));
-		}
-		  
-		  
-		// Validate
-		$verify = password_verify($password, $hash);
-		if ($verify) {
-			echo json_encode(array("statusCode"=>200, "email"=>$email, "loggedin"=>true));
-		} 
 		else {
 			echo json_encode(array("statusCode"=>201));
 		}
